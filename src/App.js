@@ -1,5 +1,20 @@
-import { Box, Typography, Button, AppBar, Card, CardActions, CardContent, CardMedia, CssBaseline, Grid, Toolbar, Container } from "@mui/material";
-import PhotoCamera from '@mui/icons-material/PhotoCamera';
+import {
+  Box,
+  Typography,
+  Button,
+  AppBar,
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  CssBaseline,
+  Grid,
+  Toolbar,
+  Container,
+} from "@mui/material";
+import PhotoCamera from "@mui/icons-material/PhotoCamera";
+import useStyles from "./styles";
+
 
 
 import Navbar from "./components/Navbar";
@@ -7,28 +22,36 @@ import Sidebar from "./components/Sidebar";
 import Feed from "./components/Feed";
 import Rightbar from "./components/Rightbar";
 
-
-
 function App() {
+  const classes = useStyles();
   return (
     <>
       <CssBaseline />
       <AppBar position="relative">
         <Toolbar>
           <PhotoCamera />
-          <Typography variant="h6">
-            Photo Album
-          </Typography>
+          <Typography variant="h6">Photo Album</Typography>
         </Toolbar>
       </AppBar>
       <main>
-        <div>
+        <div className={classes.container} >
           <Container maxWidth="sm">
-            <Typography variant="h2" align="center" color="textPrimary" gutterBottom>
+            <Typography
+              variant="h2"
+              align="center"
+              color="textPrimary"
+              gutterBottom
+            >
               Photo Album
             </Typography>
-            <Typography variant="h5" align="center" color="textSecondary" paragraph>
-              Hello everyone this is a photo album and I'm trying to make this line long to see what it looks like on the screen
+            <Typography
+              variant="h5"
+              align="center"
+              color="textSecondary"
+              paragraph
+            >
+              Hello everyone this is a photo album and I'm trying to make this
+              line long to see what it looks like on the screen
             </Typography>
             <div>
               <Grid container spacing={2} justifyContent="center">
@@ -46,7 +69,7 @@ function App() {
             </div>
           </Container>
         </div>
-        </main>
+      </main>
     </>
   );
 }
