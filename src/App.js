@@ -15,12 +15,8 @@ import {
 import PhotoCamera from "@mui/icons-material/PhotoCamera";
 import useStyles from "./styles";
 
+const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-
-import Navbar from "./components/Navbar";
-import Sidebar from "./components/Sidebar";
-import Feed from "./components/Feed";
-import Rightbar from "./components/Rightbar";
 
 function App() {
   const classes = useStyles();
@@ -29,7 +25,7 @@ function App() {
       <CssBaseline />
       <AppBar position="relative">
         <Toolbar>
-          <PhotoCamera />
+          <PhotoCamera className={classes.icon} />
           <Typography variant="h6">Photo Album</Typography>
         </Toolbar>
       </AppBar>
@@ -53,7 +49,7 @@ function App() {
               Hello everyone this is a photo album and I'm trying to make this
               line long to see what it looks like on the screen
             </Typography>
-            <div>
+            <div className={classes.button} >
               <Grid container spacing={2} justifyContent="center">
                 <Grid item>
                   <Button variant="contained" color="secondary">
@@ -69,7 +65,46 @@ function App() {
             </div>
           </Container>
         </div>
+        <Container className={classes.cardGrid} maxWidth='md'>
+          <Grid container spacing={4}>
+            {cards.map((card, index) => (
+            <Grid item key={index} xs={12} sm={6} md={4} >
+              <Card className={classes.card} >
+                <CardMedia>
+                  className={classes.cardMedia}
+                  image='https://source.unsplash.com/random'
+                  title='Image Title'
+                </CardMedia>
+                <CardContent className={classes.cardContent}>
+                  <Typography gutterButtom variant='h5'>
+                    Heading
+                  </Typography>
+                  <Typography variant="body2">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  </Typography>
+                </CardContent>
+                <CardActions className={classes.cardActions}>
+                  <Button size="small">
+                    Action
+                    </Button>
+                  <Button size="small" color="secondary">
+                    Action
+                    </Button>
+                    </CardActions>
+              </Card>
+            </Grid>
+            ))}
+            </Grid> 
+        </Container>
       </main>
+      <footer className={classes.footer}>
+              <Typography variant="h6" align="center" gutterBottom>
+                Footer
+              </Typography>
+              <Typography variant="caption" align="center" gutterBottom>
+                footer is here for some purpose.
+              </Typography>
+      </footer>
     </>
   );
 }
